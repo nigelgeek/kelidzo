@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import type { Story } from '../../data/types'
 import PillTag from '../layout/PillTag'
 
@@ -16,7 +16,7 @@ export default function RecommendedRail({ stories }: RecommendedRailProps) {
       {stories.map((story) => (
         <Link
           key={story.id}
-          to={`/stories/${story.slug}`}
+          href={`/stories/${story.slug}`}
           className="group flex gap-4 border border-brown/20 bg-cream p-3 transition-colors hover:border-gold"
         >
           <img

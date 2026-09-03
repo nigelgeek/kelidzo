@@ -1,6 +1,8 @@
+'use client'
+
 import { useState } from 'react'
-import PageShell from '../components/layout/PageShell'
-import StampButton from '../components/layout/StampButton'
+import PageShell from '@/components/layout/PageShell'
+import StampButton from '@/components/layout/StampButton'
 
 /**
  * Contact, simple form. Inputs get the monospace-label, bordered

@@ -1,13 +1,15 @@
-import { useState } from 'react'
-import { useSearchParams } from 'react-router-dom'
-import FolioLabel from '../components/layout/FolioLabel'
-import PillTag from '../components/layout/PillTag'
-import StampButton from '../components/layout/StampButton'
-import StoryCard from '../components/cards/StoryCard'
-import RecommendedRail from '../components/modules/RecommendedRail'
-import { stories } from '../data/stories'
-import { pillars } from '../data/pillars'
-import type { PillarName } from '../data/types'
+'use client'
+
+import { Suspense, useState } from 'react'
+import { useSearchParams } from 'next/navigation'
+import FolioLabel from '@/components/layout/FolioLabel'
+import PillTag from '@/components/layout/PillTag'
+import StampButton from '@/components/layout/StampButton'
+import StoryCard from '@/components/cards/StoryCard'
+import RecommendedRail from '@/components/modules/RecommendedRail'
+import { stories } from '@/data/stories'
+import { pillars } from '@/data/pillars'
+import type { PillarName } from '@/data/types'
 
 const TOTAL_SECTIONS = 4
 
@@ -18,7 +20,15 @@ const TOTAL_SECTIONS = 4
  * "Load More" button instead of numbered pagination.
  */
 export default function Stories() {
-  const [searchParams, setSearchParams] = useSearchParams()
+  return (
+    <Suspense fallback={null}>
+      <StoriesContent />
+    </Suspense>
+  )
+}
+
+function StoriesContent() {
+  const searchParams = useSearchParams()
   const activePillar = (searchParams.get('pillar') ?? '') as PillarName | ''
   const [visibleCount, setVisibleCount] = useState(5)
 
@@ -31,11 +41,10 @@ export default function Stories() {
 
   const setPillar = (pillar: PillarName | '') => {
     setVisibleCount(5)
-    if (pillar) {
-      setSearchParams({ pillar: pillar.toLowerCase() })
-    } else {
-      setSearchParams({})
-    }
+    const url = pillar
+      ? `/stories?pillar=${pillar.toLowerCase()}`
+      : '/stories'
+    window.location.href = url
   }
 
   return (

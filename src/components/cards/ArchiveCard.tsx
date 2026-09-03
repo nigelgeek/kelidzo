@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import type { ArchiveItem } from '../../data/types'
 import PillTag from '../layout/PillTag'
 
@@ -13,7 +13,7 @@ interface ArchiveCardProps {
 export default function ArchiveCard({ item }: ArchiveCardProps) {
   return (
     <Link
-      to={`/archive/${item.slug}`}
+      href={`/archive/${item.slug}`}
       className="group block border border-brown/20 bg-cream transition-colors hover:border-gold"
     >
       <div className="overflow-hidden">

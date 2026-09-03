@@ -1,15 +1,38 @@
-import { useParams } from 'react-router-dom'
-import FolioLabel from '../components/layout/FolioLabel'
-import PillTag from '../components/layout/PillTag'
-import StampButton from '../components/layout/StampButton'
-import { programmes } from '../data/programmes'
+import type { Metadata } from 'next'
+import { notFound } from 'next/navigation'
+import FolioLabel from '@/components/layout/FolioLabel'
+import PillTag from '@/components/layout/PillTag'
+import StampButton from '@/components/layout/StampButton'
+import { programmes } from '@/data/programmes'
+
+// ISR: regenerate these pages at most every 60 seconds.
+export const revalidate = 60
+
+export function generateStaticParams() {
+  return programmes.map((prog) => ({ slug: prog.slug }))
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string }
+}): Promise<Metadata> {
+  const prog = programmes.find((p) => p.slug === params.slug)
+  return {
+    title: prog ? `${prog.title} | Kelidzo` : 'Kelidzo',
+    description: prog?.description,
+  }
+}
 
 /**
  * Programme detail, single programme with date/time and format.
  */
-export default function ProgrammeDetail() {
-  const { slug } = useParams()
-  const prog = programmes.find((p) => p.slug === slug) ?? programmes[0]
+export default function ProgrammeDetail({ params }: { params: { slug: string } }) {
+  const prog = programmes.find((p) => p.slug === params.slug)
+
+  if (!prog) {
+    notFound()
+  }
 
   return (
     <main>

@@ -1,5 +1,8 @@
+'use client'
+
 import { useState } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import StampButton from './StampButton'
 
 const mainNav = [
@@ -18,6 +21,9 @@ const mainNav = [
  */
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const pathname = usePathname()
+
+  const isActive = (to: string) => pathname === to
 
   return (
     <header className="border-b border-brown/20 bg-cream">
@@ -30,31 +36,29 @@ export default function Header() {
             <a href="#" className="hover:text-gold">YouTube</a>
           </div>
           <div className="flex items-center gap-4 font-label text-xs uppercase tracking-wider text-brown">
-            <Link to="/search" className="hover:text-gold">Search</Link>
-            <Link to="/contact" className="hover:text-gold">Newsletter</Link>
+            <Link href="/search" className="hover:text-gold">Search</Link>
+            <Link href="/contact" className="hover:text-gold">Newsletter</Link>
           </div>
         </div>
       </div>
 
       {/* Main nav row */}
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
-        <Link to="/" className="font-display text-2xl font-semibold tracking-tight text-ink">
+        <Link href="/" className="font-display text-2xl font-semibold tracking-tight text-ink">
           Kelidzo
         </Link>
 
         <nav className="hidden items-center gap-6 lg:flex">
           {mainNav.map((item) => (
-            <NavLink
+            <Link
               key={item.to}
-              to={item.to}
-              className={({ isActive }) =>
-                `font-label text-sm uppercase tracking-wider transition-colors ${
-                  isActive ? 'text-gold' : 'text-ink hover:text-gold'
-                }`
-              }
+              href={item.to}
+              className={`font-label text-sm uppercase tracking-wider transition-colors ${
+                isActive(item.to) ? 'text-gold' : 'text-ink hover:text-gold'
+              }`}
             >
               {item.label}
-            </NavLink>
+            </Link>
           ))}
         </nav>
 
@@ -79,14 +83,16 @@ export default function Header() {
         <nav className="border-t border-brown/10 bg-cream px-4 py-4 lg:hidden">
           <div className="flex flex-col gap-3">
             {mainNav.map((item) => (
-              <NavLink
+              <Link
                 key={item.to}
-                to={item.to}
+                href={item.to}
                 onClick={() => setMenuOpen(false)}
-                className="font-label text-sm uppercase tracking-wider text-ink hover:text-gold"
+                className={`font-label text-sm uppercase tracking-wider ${
+                  isActive(item.to) ? 'text-gold' : 'text-ink hover:text-gold'
+                }`}
               >
                 {item.label}
-              </NavLink>
+              </Link>
             ))}
             <StampButton to="/contact" variant="secondary" className="mt-2">
               Work With Kelidzo

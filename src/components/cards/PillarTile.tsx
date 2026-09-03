@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import type { Pillar } from '../../data/types'
 import FolioLabel from '../layout/FolioLabel'
 
@@ -16,7 +16,7 @@ interface PillarTileProps {
 export default function PillarTile({ pillar, index, total }: PillarTileProps) {
   return (
     <Link
-      to={`/stories?pillar=${pillar.name.toLowerCase()}`}
+      href={`/stories?pillar=${pillar.name.toLowerCase()}`}
       className="group flex flex-col justify-between border border-brown/20 bg-cream p-6 transition-colors hover:border-gold"
     >
       <div className="flex items-start justify-between">

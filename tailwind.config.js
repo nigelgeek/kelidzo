@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  content: ['./app/**/*.{js,ts,jsx,tsx}', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       colors: {
@@ -14,9 +14,9 @@ export default {
         'gold-bright': 'rgb(var(--color-gold-bright) / <alpha-value>)',
       },
       fontFamily: {
-        display: ['var(--font-display)'],
-        body: ['var(--font-body)'],
-        label: ['var(--font-label)'],
+        display: ['var(--font-display)', 'Fraunces', 'serif'],
+        body: ['var(--font-body)', 'Work Sans', 'sans-serif'],
+        label: ['var(--font-label)', 'Space Mono', 'monospace'],
       },
     },
   },

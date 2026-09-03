@@ -1,6 +1,6 @@
-import PageShell from '../components/layout/PageShell'
-import ProgrammeCard from '../components/cards/ProgrammeCard'
-import { programmes } from '../data/programmes'
+import PageShell from '@/components/layout/PageShell'
+import ProgrammeCard from '@/components/cards/ProgrammeCard'
+import { programmes } from '@/data/programmes'
 
 /**
  * Programmes index, rail of ProgrammeCards.

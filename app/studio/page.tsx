@@ -1,6 +1,6 @@
-import PageShell from '../components/layout/PageShell'
-import StampButton from '../components/layout/StampButton'
-import BrowserChromeFrame from '../components/modules/BrowserChromeFrame'
+import PageShell from '@/components/layout/PageShell'
+import StampButton from '@/components/layout/StampButton'
+import BrowserChromeFrame from '@/components/modules/BrowserChromeFrame'
 
 /**
  * Creative Studio, must feel secondary to the editorial identity

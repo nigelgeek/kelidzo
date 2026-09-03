@@ -1,15 +1,38 @@
-import { useParams } from 'react-router-dom'
-import FolioLabel from '../components/layout/FolioLabel'
-import PillTag from '../components/layout/PillTag'
-import StampButton from '../components/layout/StampButton'
-import { opportunities } from '../data/opportunities'
+import type { Metadata } from 'next'
+import { notFound } from 'next/navigation'
+import FolioLabel from '@/components/layout/FolioLabel'
+import PillTag from '@/components/layout/PillTag'
+import StampButton from '@/components/layout/StampButton'
+import { opportunities } from '@/data/opportunities'
+
+// ISR: regenerate these pages at most every 60 seconds.
+export const revalidate = 60
+
+export function generateStaticParams() {
+  return opportunities.map((opp) => ({ slug: opp.slug }))
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string }
+}): Promise<Metadata> {
+  const opp = opportunities.find((o) => o.slug === params.slug)
+  return {
+    title: opp ? `${opp.title} | Kelidzo` : 'Kelidzo',
+    description: opp?.description,
+  }
+}
 
 /**
  * Opportunity detail, single opportunity with prominent deadline.
  */
-export default function OpportunityDetail() {
-  const { slug } = useParams()
-  const opp = opportunities.find((o) => o.slug === slug) ?? opportunities[0]
+export default function OpportunityDetail({ params }: { params: { slug: string } }) {
+  const opp = opportunities.find((o) => o.slug === params.slug)
+
+  if (!opp) {
+    notFound()
+  }
 
   return (
     <main>

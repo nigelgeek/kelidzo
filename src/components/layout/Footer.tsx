@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 
 const columns = [
   {
@@ -49,7 +49,7 @@ export default function Footer() {
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-5">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link to="/" className="font-display text-2xl font-semibold text-ink">
+            <Link href="/" className="font-display text-2xl font-semibold text-ink">
               Kelidzo
             </Link>
             <p className="mt-3 font-label text-xs uppercase tracking-wider text-brown">
@@ -67,7 +67,7 @@ export default function Footer() {
                 {col.links.map((link) => (
                   <li key={link.label}>
                     <Link
-                      to={link.to}
+                      href={link.to}
                       className="font-body text-sm text-ink hover:text-gold"
                     >
                       {link.label}
@@ -84,9 +84,9 @@ export default function Footer() {
             © 2026 Kelidzo. All rights reserved.
           </p>
           <div className="flex items-center gap-4 font-label text-xs uppercase tracking-wider text-brown">
-            <Link to="/contact" className="hover:text-gold">Privacy</Link>
-            <Link to="/contact" className="hover:text-gold">Terms</Link>
-            <Link to="/contact" className="hover:text-gold">Accessibility</Link>
+            <Link href="/contact" className="hover:text-gold">Privacy</Link>
+            <Link href="/contact" className="hover:text-gold">Terms</Link>
+            <Link href="/contact" className="hover:text-gold">Accessibility</Link>
           </div>
         </div>
       </div>

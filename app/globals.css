@@ -18,10 +18,6 @@
   --color-brown-deep: 42 26 14; /* #2A1A0E dark cards, overlays */
   --color-gold: 198 138 31; /* #C68A1F highlights, links, tags */
   --color-gold-bright: 219 163 50; /* #dba332 hover/active states */
-
-  --font-display: 'Fraunces', serif; /* headlines, hero statements */
-  --font-body: 'Work Sans', sans-serif; /* paragraphs, descriptions */
-  --font-label: 'Space Mono', monospace; /* eyebrows, folio numbers, tags, buttons */
 }
 
 @layer base {

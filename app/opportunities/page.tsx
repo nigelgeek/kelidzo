@@ -1,6 +1,6 @@
-import PageShell from '../components/layout/PageShell'
-import OpportunityCard from '../components/cards/OpportunityCard'
-import { opportunities } from '../data/opportunities'
+import PageShell from '@/components/layout/PageShell'
+import OpportunityCard from '@/components/cards/OpportunityCard'
+import { opportunities } from '@/data/opportunities'
 
 /**
  * Opportunities index, rail of OpportunityCards.

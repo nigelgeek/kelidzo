@@ -1,7 +1,10 @@
+'use client'
+
 import { useState } from 'react'
-import PageShell from '../components/layout/PageShell'
-import StampButton from '../components/layout/StampButton'
-import { stories } from '../data/stories'
+import Link from 'next/link'
+import PageShell from '@/components/layout/PageShell'
+import StampButton from '@/components/layout/StampButton'
+import { stories } from '@/data/stories'
 
 /**
  * Search, simple client-side search over story titles/excerpts.
@@ -51,7 +54,7 @@ export default function Search() {
                 <ul className="divide-y divide-brown/15 border border-brown/20">
                   {results.map((s) => (
                     <li key={s.id}>
-                      <a
+                      <Link
                         href={`/stories/${s.slug}`}
                         className="block p-4 transition-colors hover:bg-cream"
                       >
@@ -62,7 +65,7 @@ export default function Search() {
                           {s.title}
                         </h3>
                         <p className="mt-1 font-body text-sm text-brown">{s.excerpt}</p>
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>

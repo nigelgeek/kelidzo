@@ -1,21 +1,21 @@
-import FolioLabel from '../components/layout/FolioLabel'
-import StampButton from '../components/layout/StampButton'
-import StoryCard from '../components/cards/StoryCard'
-import PillarTile from '../components/cards/PillarTile'
-import OpportunityCard from '../components/cards/OpportunityCard'
-import ProgrammeCard from '../components/cards/ProgrammeCard'
-import NewsletterSignup from '../components/modules/NewsletterSignup'
-import { stories } from '../data/stories'
-import { pillars } from '../data/pillars'
-import { opportunities } from '../data/opportunities'
-import { programmes } from '../data/programmes'
+import FolioLabel from '@/components/layout/FolioLabel'
+import StampButton from '@/components/layout/StampButton'
+import StoryCard from '@/components/cards/StoryCard'
+import PillarTile from '@/components/cards/PillarTile'
+import OpportunityCard from '@/components/cards/OpportunityCard'
+import ProgrammeCard from '@/components/cards/ProgrammeCard'
+import NewsletterSignup from '@/components/modules/NewsletterSignup'
+import { stories } from '@/data/stories'
+import { pillars } from '@/data/pillars'
+import { opportunities } from '@/data/opportunities'
+import { programmes } from '@/data/programmes'
 
 const TOTAL_SECTIONS = 7
 
 /**
  * Homepage, NATIVE-style layout (Section 4): stacked cover-story
  * hero blocks, then a vertical sequence of distinct rails.
- * Section order follows the brief exactly (01–11).
+ * Section order follows the brief exactly (01–07).
  */
 export default function Home() {
   return (
@@ -211,8 +211,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* 11, Footer handled by layout */}
     </main>
   )
 }

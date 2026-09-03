@@ -1,5 +1,5 @@
-import PageShell from '../components/layout/PageShell'
-import StampButton from '../components/layout/StampButton'
+import PageShell from '@/components/layout/PageShell'
+import StampButton from '@/components/layout/StampButton'
 
 /**
  * About, brand explainer. No agency/startup phrasing (Section 6).

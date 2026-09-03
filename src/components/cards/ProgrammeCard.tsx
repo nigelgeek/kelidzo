@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import type { Programme } from '../../data/types'
 import PillTag from '../layout/PillTag'
 
@@ -12,7 +12,7 @@ interface ProgrammeCardProps {
 export default function ProgrammeCard({ programme }: ProgrammeCardProps) {
   return (
     <Link
-      to={`/programmes/${programme.slug}`}
+      href={`/programmes/${programme.slug}`}
       className="group flex flex-col border border-brown/20 bg-cream p-6 transition-colors hover:border-gold"
     >
       <div className="flex items-center justify-between">

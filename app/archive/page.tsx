@@ -1,6 +1,6 @@
-import PageShell from '../components/layout/PageShell'
-import ArchiveCard from '../components/cards/ArchiveCard'
-import { archive } from '../data/archive'
+import PageShell from '@/components/layout/PageShell'
+import ArchiveCard from '@/components/cards/ArchiveCard'
+import { archive } from '@/data/archive'
 
 /**
  * Archive index, Marmalade-style feed of mixed-type ArchiveCards.

@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import type { Opportunity } from '../../data/types'
 import PillTag from '../layout/PillTag'
 
@@ -13,7 +13,7 @@ interface OpportunityCardProps {
 export default function OpportunityCard({ opportunity }: OpportunityCardProps) {
   return (
     <Link
-      to={`/opportunities/${opportunity.slug}`}
+      href={`/opportunities/${opportunity.slug}`}
       className="group flex flex-col border border-brown/20 bg-cream p-6 transition-colors hover:border-gold"
     >
       <div className="flex items-center justify-between">

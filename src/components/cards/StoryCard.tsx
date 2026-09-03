@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import type { Story } from '../../data/types'
 import PillTag from '../layout/PillTag'
 
@@ -17,7 +17,7 @@ export default function StoryCard({ story, variant = 'feed' }: StoryCardProps) {
   if (variant === 'cover') {
     return (
       <Link
-        to={`/stories/${story.slug}`}
+        href={`/stories/${story.slug}`}
         className="group relative block overflow-hidden border border-brown/20 bg-brown-deep"
       >
         <img
@@ -54,7 +54,7 @@ export default function StoryCard({ story, variant = 'feed' }: StoryCardProps) {
 
   return (
     <article className="border-b border-brown/15 py-10 first:pt-0 last:border-b-0">
-      <Link to={`/stories/${story.slug}`} className="group block">
+      <Link href={`/stories/${story.slug}`} className="group block">
         <div className="grid gap-6 md:grid-cols-12 md:items-start">
           <div className="md:col-span-4">
             <img

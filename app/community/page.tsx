@@ -1,6 +1,6 @@
-import PageShell from '../components/layout/PageShell'
-import FlowChain from '../components/modules/FlowChain'
-import StampButton from '../components/layout/StampButton'
+import PageShell from '@/components/layout/PageShell'
+import FlowChain from '@/components/modules/FlowChain'
+import StampButton from '@/components/layout/StampButton'
 
 /**
  * Community, dark punctuation section + flow chain of ways to

@@ -1,17 +1,41 @@
-import { useParams } from 'react-router-dom'
-import FolioLabel from '../components/layout/FolioLabel'
-import PillTag from '../components/layout/PillTag'
-import StampButton from '../components/layout/StampButton'
-import RecommendedRail from '../components/modules/RecommendedRail'
-import { stories } from '../data/stories'
+import type { Metadata } from 'next'
+import { notFound } from 'next/navigation'
+import FolioLabel from '@/components/layout/FolioLabel'
+import PillTag from '@/components/layout/PillTag'
+import StampButton from '@/components/layout/StampButton'
+import RecommendedRail from '@/components/modules/RecommendedRail'
+import { stories } from '@/data/stories'
+
+// ISR: regenerate these pages at most every 60 seconds.
+export const revalidate = 60
+
+export function generateStaticParams() {
+  return stories.map((story) => ({ slug: story.slug }))
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string }
+}): Promise<Metadata> {
+  const story = stories.find((s) => s.slug === params.slug)
+  return {
+    title: story ? `${story.title} | Kelidzo` : 'Kelidzo',
+    description: story?.dek,
+  }
+}
 
 /**
  * Story detail, single story. Uses the same tokens/motifs as the
  * feed cards (byline, pill tag, Fraunces title).
  */
-export default function StoryDetail() {
-  const { slug } = useParams()
-  const story = stories.find((s) => s.slug === slug) ?? stories[0]
+export default function StoryDetail({ params }: { params: { slug: string } }) {
+  const story = stories.find((s) => s.slug === params.slug)
+
+  if (!story) {
+    notFound()
+  }
+
   const recommended = stories.filter((s) => s.id !== story.id).slice(0, 3)
 
   return (

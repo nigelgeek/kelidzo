@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 
 interface StampButtonProps {
   children: ReactNode
@@ -33,7 +33,7 @@ export default function StampButton({
 
   if (to) {
     return (
-      <Link to={to} className={combined}>
+      <Link href={to} className={combined}>
         {children}
       </Link>
     )
