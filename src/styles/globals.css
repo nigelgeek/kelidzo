@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   Kelidzo Design Tokens, Section 1 of the design-taste skill.
+   Never hardcode hex values inline; reference these variables
+   (or the Tailwind theme extensions that map to them).
+   Values are RGB triplets so Tailwind's <alpha-value> opacity
+   modifiers (e.g. border-brown/40) work correctly.
+   ============================================================ */
+:root {
+  --color-cream: 250 245 234; /* #FAF5EA primary background */
+  --color-cream-deep: 240 228 203; /* #F0E4CB section/card background */
+  --color-ink: 30 23 18; /* #1E1712 primary body text, dark UI */
+  --color-ink-deep: 23 14 7; /* #170E07 darkest punctuation sections */
+  --color-brown: 74 46 24; /* #4A2E18 accent, secondary text */
+  --color-brown-deep: 42 26 14; /* #2A1A0E dark cards, overlays */
+  --color-gold: 198 138 31; /* #C68A1F highlights, links, tags */
+  --color-gold-bright: 219 163 50; /* #dba332 hover/active states */
+
+  --font-display: 'Fraunces', serif; /* headlines, hero statements */
+  --font-body: 'Work Sans', sans-serif; /* paragraphs, descriptions */
+  --font-label: 'Space Mono', monospace; /* eyebrows, folio numbers, tags, buttons */
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream text-ink font-body antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display;
+  }
+
+  /* Unstyled browser-default form inputs are banned (Section 2).
+     Give every input the same monospace-label, bordered treatment
+     as buttons. */
+  input,
+  textarea,
+  select {
+    @apply font-label text-sm bg-transparent border border-brown/40 px-4 py-3
+      placeholder:text-brown/50 focus:outline-none focus:border-gold;
+  }
+}
+
+@layer components {
+  /* Pill tags, bordered pills for categories everywhere (Section 3). */
+  .pill {
+    @apply inline-flex items-center border border-brown/40 px-3 py-1 font-label text-xs uppercase tracking-wider text-brown;
+  }
+
+  /* Stamp buttons, short, all-caps, --font-label, rubber-stamp feel.
+     Primary = solid fill, Secondary = outline (Section 3 / 5). */
+  .stamp-btn {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 font-label text-sm uppercase tracking-widest transition-colors duration-200;
+  }
+  .stamp-btn-primary {
+    @apply stamp-btn bg-ink text-cream hover:bg-brown;
+  }
+  .stamp-btn-secondary {
+    @apply stamp-btn border border-ink text-ink hover:border-gold hover:text-gold;
+  }
+
+  /* Folio label, printed-dossier-style number (Section 3). */
+  .folio-label {
+    @apply font-label text-xs uppercase tracking-widest text-brown;
+  }
+
+  /* Byline block, small circular avatar + name (Section 3). */
+  .byline {
+    @apply flex items-center gap-3 font-label text-xs uppercase tracking-wider text-brown;
+  }
+  .byline-avatar {
+    @apply h-8 w-8 rounded-full border border-brown/30 object-cover;
+  }
+}
