@@ -21,22 +21,34 @@ export default function Home() {
   return (
     <main>
       {/* 01, Hero */}
-      <section className="border-b border-brown/20">
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:py-24">
-          <FolioLabel current={1} total={TOTAL_SECTIONS} label="Kelidzo" />
-          <h1 className="mt-6 max-w-4xl font-display text-5xl font-semibold leading-[1.05] tracking-tight text-ink sm:text-7xl">
+      <section
+        className="relative overflow-hidden border-b border-brown/20 bg-brown-deep bg-cover bg-center"
+        style={{ backgroundImage: "url('/images/story-home.jpg')" }}
+      >
+        <div className="absolute inset-0 bg-ink-deep/70" aria-hidden="true" />
+        <div className="relative mx-auto max-w-6xl px-4 py-16 sm:py-24">
+          <FolioLabel current={1} total={TOTAL_SECTIONS} label="Kelidzo" className="text-cream/70" />
+          <h1 className="mt-6 max-w-4xl font-display text-5xl font-semibold leading-[1.05] tracking-tight text-cream sm:text-7xl">
             Where Culture Lives.
           </h1>
-          <p className="mt-6 max-w-2xl font-body text-lg text-brown">
+          <p className="mt-6 max-w-2xl font-body text-lg text-cream/85">
             Kelidzo documents the people, stories, and culture of African and Black
             communities across Western Canada and the diaspora, a living archive, not a
             headline.
           </p>
           <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
-            <StampButton to="/community" variant="primary">
+            <StampButton
+              to="/community"
+              variant="primary"
+              className="!bg-gold !text-ink hover:!bg-gold-bright"
+            >
               Step Into Kelidzo
             </StampButton>
-            <StampButton to="/stories" variant="secondary">
+            <StampButton
+              to="/stories"
+              variant="secondary"
+              className="!border-cream !text-cream hover:!bg-cream hover:!text-ink"
+            >
               Read Our Stories
             </StampButton>
           </div>
