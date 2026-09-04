@@ -23,7 +23,7 @@ const columns = [
     title: 'Connect',
     links: [
       { label: 'Contact', to: '/contact' },
-      { label: 'Newsletter', to: '/contact' },
+      { label: 'Newsletter', to: '/#newsletter' },
       { label: 'Instagram', to: '/contact' },
       { label: 'X', to: '/contact' },
     ],

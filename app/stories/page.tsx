@@ -11,7 +11,7 @@ import { stories } from '@/data/stories'
 import { pillars } from '@/data/pillars'
 import type { PillarName } from '@/data/types'
 
-const TOTAL_SECTIONS = 4
+const TOTAL_SECTIONS = 3
 
 /**
  * Stories index, Marmalade-style single-column feed (Section 4):
@@ -111,34 +111,6 @@ function StoriesContent() {
           </h2>
           <div className="mt-6">
             <RecommendedRail stories={stories.slice(0, 3)} />
-          </div>
-        </div>
-      </section>
-
-      {/* Contributors */}
-      <section className="border-b border-brown/20 bg-cream-deep">
-        <div className="mx-auto max-w-6xl px-4 py-12">
-          <FolioLabel current={4} total={TOTAL_SECTIONS} label="Contributors" />
-          <h2 className="mt-3 font-display text-2xl font-semibold text-ink sm:text-3xl">
-            Meet the Contributors
-          </h2>
-          <div className="mt-6 flex flex-wrap gap-6">
-            {stories
-              .map((s) => s.author)
-              .filter((a, i, arr) => arr.findIndex((x) => x.name === a.name) === i)
-              .map((author) => (
-                <div key={author.name} className="flex items-center gap-3">
-                  <img src={author.avatar} alt={author.name} className="byline-avatar" />
-                  <div>
-                    <p className="font-label text-sm uppercase tracking-wider text-ink">
-                      {author.name}
-                    </p>
-                    <p className="font-label text-xs uppercase tracking-wider text-brown">
-                      {author.role}
-                    </p>
-                  </div>
-                </div>
-              ))}
           </div>
         </div>
       </section>

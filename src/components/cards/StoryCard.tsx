@@ -30,7 +30,7 @@ export default function StoryCard({ story, variant = 'feed' }: StoryCardProps) {
           <div className="mb-3 flex items-center gap-3">
             <PillTag className="border-cream/40 text-cream">{story.pillar}</PillTag>
             <span className="font-label text-xs uppercase tracking-wider text-cream/70">
-              {story.readTime}
+              {story.publishedAt}
             </span>
           </div>
           <h3 className="font-display text-2xl font-semibold leading-tight text-cream sm:text-3xl">
@@ -80,8 +80,6 @@ export default function StoryCard({ story, variant = 'feed' }: StoryCardProps) {
             <div className="byline mt-5">
               <img src={story.author.avatar} alt={story.author.name} className="byline-avatar" />
               <span>{story.author.name}</span>
-              <span className="text-brown/50">·</span>
-              <span className="text-brown/70">{story.readTime}</span>
             </div>
           </div>
         </div>

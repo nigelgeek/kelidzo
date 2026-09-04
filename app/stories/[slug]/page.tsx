@@ -47,7 +47,7 @@ export default function StoryDetail({ params }: { params: { slug: string } }) {
             <div className="mt-4 flex items-center gap-3">
               <PillTag>{story.pillar}</PillTag>
               <span className="font-label text-xs uppercase tracking-wider text-brown">
-                {story.publishedAt} · {story.readTime}
+                {story.publishedAt}
               </span>
             </div>
             <h1 className="mt-4 font-display text-4xl font-semibold leading-tight text-ink sm:text-5xl">

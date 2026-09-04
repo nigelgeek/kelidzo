@@ -196,7 +196,7 @@ export default function Home() {
       </section>
 
       {/* 07, Newsletter */}
-      <section className="border-b border-brown/20 bg-cream-deep">
+      <section id="newsletter" className="border-b border-brown/20 bg-cream-deep">
         <div className="mx-auto max-w-6xl px-4 py-16">
           <FolioLabel current={7} total={TOTAL_SECTIONS} />
           <h2 className="mt-3 font-display text-3xl font-semibold text-ink sm:text-4xl">

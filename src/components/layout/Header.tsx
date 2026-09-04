@@ -37,7 +37,7 @@ export default function Header() {
           </div>
           <div className="flex items-center gap-4 font-label text-xs uppercase tracking-wider text-brown">
             <Link href="/search" className="hover:text-gold">Search</Link>
-            <Link href="/contact" className="hover:text-gold">Newsletter</Link>
+            <Link href="/#newsletter" className="hover:text-gold">Newsletter</Link>
           </div>
         </div>
       </div>
